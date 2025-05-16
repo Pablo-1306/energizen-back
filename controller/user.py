@@ -21,7 +21,6 @@ def validate_user(request):
         if user_data is None:
             return jsonify(error="Usuario o Contraseña errróneos"), 400
     
-        print(user_data.name)
         return jsonify({
             'user_data': [{
                 'name': user_data.name,

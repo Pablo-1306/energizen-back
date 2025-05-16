@@ -10,6 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 from controller.user import (validate_user, create_user)
+from controller.products import get_all_products, get_product_detail
 
 
 @app.route("/", methods=["POST","GET"])
@@ -30,6 +31,15 @@ def create_user_():
     if request.method == "POST":
         return create_user(request)
 
+@app.route("/products/get-list", methods=["POST"])
+def get_all_products_():
+    if request.method == "POST":
+        return get_all_products(request)
+    
+@app.route("/products/get-detail", methods=["POST"])
+def get_product_detail_():
+    if request.method == "POST":
+        return get_product_detail(request)
     
 # ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
